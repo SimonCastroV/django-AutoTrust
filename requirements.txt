@@ -1,0 +1,30 @@
+# Django framework
+Django>=5.0,<6.0
+
+# Django REST Framework
+djangorestframework>=3.15.0
+
+# Dependencias auxiliares de Django
+asgiref>=3.8
+sqlparse>=0.5.0
+tzdata>=2024.1; sys_platform == "win32"
+
+# Core
+Django>=5.0,<6.0
+djangorestframework>=3.15.0
+
+# CORS para conectar con el frontend (Vite)
+django-cors-headers>=4.4.0
+
+# ImageField (Pillow es obligatorio)
+Pillow>=10.0.0
+
+# Dependencias base de Django
+asgiref>=3.8.0
+sqlparse>=0.5.0
+tzdata>=2024.1; sys_platform == "win32"
+
+cd BACKEND
+.\venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install -r requirements.txt
