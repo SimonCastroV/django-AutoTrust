@@ -1,9 +1,16 @@
-import axios from 'axios';
+// src/api/Car.js
+import axios from "axios";
 
-const CarsApi= axios.create({
-    baseURL: "http://127.0.0.1:8000/api/Car/"
+// gracias al proxy de Vite, no hace falta poner http://127.0.0.1:8000
+const CarsApi = axios.create({
+  baseURL: "/api/Car",
 });
 
-export const getCars = () => CarsApi.get();
+// Obtener lista de carros
+export const getCars = () => CarsApi.get("/");
 
-export const createCar = (car) => CarsApi.post("/", car);
+// Crear carro con imagen (FormData)
+export const createCar = (formData) =>
+  CarsApi.post("/", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+  });
