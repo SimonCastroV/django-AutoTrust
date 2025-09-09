@@ -1,30 +1,10 @@
-# Django framework
-Django>=5.0,<6.0
+# Framework principal
+Django==4.2.16
 
-# Django REST Framework
-djangorestframework>=3.15.0
+# Herramientas útiles de desarrollo
+django-environ==0.11.2  # Para manejar variables de entorno (.env)
+djangorestframework==3.15.2  # Para crear APIs (REST)
 
-# Dependencias auxiliares de Django
-asgiref>=3.8
-sqlparse>=0.5.0
-tzdata>=2024.1; sys_platform == "win32"
-
-# Core
-Django>=5.0,<6.0
-djangorestframework>=3.15.0
-
-# CORS para conectar con el frontend (Vite)
-django-cors-headers>=4.4.0
-
-# ImageField (Pillow es obligatorio)
-Pillow>=10.0.0
-
-# Dependencias base de Django
-asgiref>=3.8.0
-sqlparse>=0.5.0
-tzdata>=2024.1; sys_platform == "win32"
-
-cd BACKEND
-.\venv\Scripts\activate
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+# Seguridad y utilidades
+python-decouple==3.8    # Alternativa ligera para leer configuraciones
+Pillow==11.0.0          # Para manejar imágenes en Django
