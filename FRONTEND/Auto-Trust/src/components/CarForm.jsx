@@ -82,7 +82,10 @@ export default function CarForm() {
     const fd = new FormData();
     fd.append("model", car.model.trim());
     fd.append("year", String(car.year).trim());
-    fd.append("price", String(car.price).trim());
+    const cleanPrice = String(car.price)
+      .replace(/\./g, "")  // elimina separadores de miles
+      .replace(",", ".");  // convierte coma decimal en punto
+    fd.append("price", cleanPrice.trim());
     fd.append("comments", car.comments ?? "");
     if (car.image) fd.append("image", car.image);
 
@@ -134,11 +137,18 @@ export default function CarForm() {
         <div>
           <label className="block text-sm font-bold text-gray-700">Precio:</label>
           <input
-            type="number"
-            step="0.01"
-            min="0"
+            type="text"
+            inputMode="numeric"
             value={car.price}
-            onChange={(e) => setCar({ ...car, price: e.target.value })}
+            onChange={(e) => {
+              // Eliminar puntos o comas antes de guardar
+              let raw = e.target.value.replace(/\D/g, ""); // solo dígitos
+              if (!raw) raw = "0";
+
+              // Convertir a número y formatear con separadores de miles
+              const formatted = Number(raw).toLocaleString("es-CO");
+              setCar({ ...car, price: formatted });
+            }}
             className="w-full mt-1 p-2 border border-gray-300 rounded"
             required
           />

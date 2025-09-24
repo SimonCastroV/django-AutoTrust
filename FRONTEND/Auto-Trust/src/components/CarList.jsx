@@ -145,7 +145,14 @@ export default function CarList() {
                 </div>
 
                 <p className="text-gray-400">Año: {car.year}</p>
-                <p className="text-red-500 font-bold text-lg">${car.price}</p>
+                <p className="text-red-500 font-bold text-lg">
+                  {new Intl.NumberFormat("es-CO", {
+                    style: "currency",
+                    currency: "COP",
+                    minimumFractionDigits: 2,
+                  }).format(car.price)}
+                </p>
+
                 <p className="text-gray-300 mt-1">{car.comments}</p>
                 <p className="text-xs text-gray-500 mt-2">
                   Creado: {new Date(car.created).toLocaleString()}

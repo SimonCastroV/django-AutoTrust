@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Proyecto fullstack con **Django (backend)** y **React + Vite + Tailwind CSS (frontend)**.",
   "main": "index.js",
-  "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SimonCastroV/django-AutoTrust.git"
